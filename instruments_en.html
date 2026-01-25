@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Instruments</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff;
+    }
+
+    /* 顶部固定栏 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      z-index: 1000;
+      padding: 15px 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    header img {
+      height: 90px; /* 放大 logo */
+      margin-right: 20px;
+    }
+
+    header h1 {
+      color: darkred;
+      font-size: 32px;
+      margin: 0;
+    }
+
+    /* 内容区 */
+    section {
+      display: flex;
+      margin-top: 120px; /* 避开固定栏 */
+      min-height: 80vh;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1s; /* 顶部淡入后再出现 */
+    }
+
+    .photo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo img {
+      width: 50%;
+      height: auto; /* 保持原图比例 */
+    }
+
+    .info {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .info h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .info p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .info {
+        padding: 20px;
+        text-align: center;
+      }
+      .info h2 {
+        font-size: 28px;
+      }
+      .info p {
+        font-size: 16px;
+      }
+    }
+      .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 100px; 
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      background-color: darkred;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #a00000;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部 logo + 乐器介绍 -->
+  <header>
+    <img src="image/logo.png" alt="南华潮乐团 Logo">
+    <h1>instruments</h1>
+    <link rel="stylesheet" href="style.css">
+  </header>
+
+  <!-- 扬琴介绍 -->
+  <section>
+    <div class="photo">
+      <img src="music/1. yangqin.png" alt="扬琴">
+    </div>
+    <div class="info">
+      <h2>Yangqin</h2>
+      <p>
+        The Yangqin (hammered dulcimer) is a highly distinctive plucked instrument in Teochew music, 
+        frequently featured in ensembles such as Teochew string poetry and grand gong-and-drum performances. 
+        Its bright and penetrating tone allows it to lead melodies and reinforce rhythmic structures within the ensemble. 
+        With versatile playing techniques, the yangqin can express delicate lyrical passages as well as create a lively, festive atmosphere. 
+        As a result, it is regarded as one of the core instruments in Teochew music, embodying the region’s cultural essence and highlighting the richness and depth of its musical tradition.
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/1. Yangqin.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/1. Yangqin.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/2. Yehu.png" alt="椰胡">
+    </div>
+    <div class="info">
+      <h2>Yehu</h2>
+      <p>
+        The Yehu is a distinctive bowed string instrument in Teochedw music, named after its resonator, 
+        which is often made from a coconut shell. Its tone is gentle yet resilient, 
+        making it a key carrier of melody and emotion within ensembles. 
+        The yehu excels at conveying the lyrical qualities of Teochew music while also blending seamlessly into more festive and 
+        dynamic settings. As an essential member of the Teochew string family, the yehu enriches the ensemble’s 
+        texture and embodies the regional character and cultural depth of Teochew music.
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/2. Yehu.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/2. Yehu.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/3. erhu.png" alt="Erhu">
+    </div>
+    <div class="info">
+      <h2>Erhu</h2>
+      <p>
+        The erhu, a traditional Chinese bowed string instrument, also plays a significant role in Teochew music. 
+        Known for its rich and expressive tone, the erhu conveys subtle emotions and dynamic melodic contours. 
+        In ensemble settings, it often carries the main melody or engages in dialogue with other instruments, 
+        capable of expressing both lyrical tenderness and passionate intensity. As a vital member of the Teochew string ensemble, 
+        the erhu enhances the overall texture and expands the expressive range of Teochew music.
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/3. Erhu.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/3. Erhu.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/4. zhonghu.png" alt="zhonghu">
+    </div>
+    <div class="info">
+      <h2>Zhonghu</h2>
+      <p>
+        The zhonghu is a common bowed string instrument in Teochew music, with a range between the erhu and the dahu. 
+        Its tone is rich and mellow, serving as a bridge in the ensemble by supporting the harmonic foundation while responding 
+        to the main melody. As a central member of the Teochew string section, the zhonghu balances the ensemble’s texture and 
+        adds depth, enhancing the layered quality and expressive richness of Teochew music.
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/4. Zhonghu.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/4. Zhonghu.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/5.cello.png" alt="Cello">
+    </div>
+    <div class="info">
+      <h2>Cello</h2>
+      <p>
+        The cello, though originally a Western bowed string instrument, has been incorporated into Teochew ensembles to enrich their sound. 
+        With its wide range and deep, resonant tone, the cello often provides the bass line, stabilizing rhythm and harmonic structure. 
+        It complements traditional instruments while expanding the expressive possibilities of Teochew music, adding depth and gravitas. 
+        This integration allows the regional tradition to resonate with greater complexity and presence on modern stages.
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/5. cello.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/5. cello.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/6. suona.png" alt="Big & Small Suona">
+    </div>
+    <div class="info">
+      <h2>Big & Small Suona</h2>
+      <p>
+        Both the large suona and the small suona hold significant roles in Teochew music. 
+        The suona’s bright, piercing tone makes it ideal for conveying festive and exuberant atmospheres. 
+        The big suona, with its powerful volume and majestic timbre, often leads in grand gong-and-drum performances or ceremonial occasions, heightening the sense of grandeur. 
+        The small suona, with a relatively softer tone, is better suited for indoor settings or lyrical pieces, blending smoothly with string instruments. 
+        Together, they complement each other, enriching the ensemble’s texture and showcasing the diversity and expressive range of Teochew music.
+      </p>
+      <p><strong>Big Suona</strong></p>
+      <audio controls height="100" width="100">
+        <source src="music/6. Suona_big.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/6. Suona_big.m4a">
+	    </audio>
+      <p><strong>Small Suona</strong></p>
+      <audio controls height="100" width="100">
+        <source src="music/6. Suona_small.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/6. Suona_small.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/7. Drum.png" alt="Teochew Drum">
+    </div>
+    <div class="info">
+      <h2>Teochew Drum</h2>
+      <p>
+        The Teochew drum is one of the most powerful percussion instruments in Teochew music, 
+        frequently featured in ensembles such as grand gong-and-drum performances and Teochew string poetry. 
+        With its deep and resonant tone, the drum provides a strong rhythmic foundation and enhances the overall atmosphere. 
+        In large-scale settings, it often takes a leading role, driving the tempo and emotional intensity of the ensemble; 
+        in more lyrical passages, its subtle beats add texture and nuance. 
+        The Teochew drum is not only the rhythmic core but also a symbol of strength and solemnity in Teochew music.
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/7. Drum.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/7. Drum.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <div class="nav-links">
+    <a href="ENG.html">Homepage</a>
+    <a href="performances_en.html">Performances</a>
+    <a href="teachers_en.html">Teachers</a>
+    <a href="instruments.html">中文</a>
+  </div>
+
+  <footer class="footer">
+    <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>师资</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff;
+    }
+
+    /* 顶部固定栏 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      z-index: 1000;
+      padding: 15px 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    header img {
+      height: 90px; /* 放大 logo */
+      margin-right: 20px;
+    }
+
+    header h1 {
+      color: darkred;
+      font-size: 32px;
+      margin: 0;
+    }
+
+    /* 内容区 */
+    section {
+      display: flex;
+      margin-top: 120px; /* 避开固定栏 */
+      min-height: 80vh;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1s; /* 顶部淡入后再出现 */
+    }
+
+    .photo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo img {
+      width: 50%;
+      height: auto; /* 保持原图比例 */
+    }
+
+    .info {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .info h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .info p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .info {
+        padding: 20px;
+        text-align: center;
+      }
+      .info h2 {
+        font-size: 28px;
+      }
+      .info p {
+        font-size: 16px;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 100px; 
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      background-color: darkred;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #a00000;
+    }
+    
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部 logo + 师资 -->
+  <header>
+    <img src="image/logo.png" alt="南华潮乐团 Logo">
+    <h1>师资</h1>
+    <link rel="stylesheet" href="style.css">
+
+  </header>
+
+  <!-- 黄英贵老师介绍 -->
+  <section>
+    <div class="photo">
+      <img src="image/Ng.jpg" alt="黄英贵老师">
+    </div>
+    <div class="info">
+      <h2>黄英贵老师</h2>
+      <p>
+        南华潮乐团音乐指导。<br>
+        自幼接触潮州文化，学习禅和板与香花板一系列的庙堂梵唱，学习府城潮州大锣鼓。
+        先后向杨浩然老师与戚兆铭老师学习琵琶。1978年加入中艺民族乐团。
+        2006年加入陶融儒乐社，深入学习外江乐与潮州音乐演奏，以及学习各种潮州乐器。
+        2009年组织一次综合潮州文化大型演出，内容有潮州大锣鼓、潮州小锣鼓、笛套、弦诗乐、庙堂乐、外江乐、折子戏。
+        2010年，也带团前往汕头录制整套的潮州梵呗乐。
+      </p>
+    </div>
+  </section>
+
+  <!-- 李挺锋老师介绍 -->
+  <section>
+    <div class="photo">
+      <img src="image/teacher.jpg" alt="李挺锋老师">
+    </div>
+    <div class="info">
+      <h2>李挺锋老师</h2>
+      <p>
+        广东普宁人。<br>
+        毕业于揭阳市艺术学校，师从吴旭东老师学习潮州乐器，二弦、唢呐等多种传统乐器。<br>
+        曾任中国普宁市潮剧团演奏员，现为新加坡南华潮剧社音乐老师。
+      </p>
+    </div>
+  </section>
+
+  <div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="performances.html">演出</a>
+    <a href="instruments.html">乐器</a>
+    <a href="teachers_en.html">ENGLISH</a>
+  </div>
+
+
+  <footer class="footer">
+    <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

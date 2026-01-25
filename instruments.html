@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>乐器介绍</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff;
+    }
+
+    /* 顶部固定栏 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      z-index: 1000;
+      padding: 15px 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    header img {
+      height: 90px; /* 放大 logo */
+      margin-right: 20px;
+    }
+
+    header h1 {
+      color: darkred;
+      font-size: 32px;
+      margin: 0;
+    }
+
+    /* 内容区 */
+    section {
+      display: flex;
+      margin-top: 120px; /* 避开固定栏 */
+      min-height: 80vh;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1s; /* 顶部淡入后再出现 */
+    }
+
+    .photo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo img {
+      width: 50%;
+      height: auto; /* 保持原图比例 */
+    }
+
+    .info {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .info h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .info p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .info {
+        padding: 20px;
+        text-align: center;
+      }
+      .info h2 {
+        font-size: 28px;
+      }
+      .info p {
+        font-size: 16px;
+      }
+    }
+      .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 100px; 
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      background-color: darkred;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #a00000;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部 logo + 乐器介绍 -->
+  <header>
+    <img src="image/logo.png" alt="南华潮乐团 Logo">
+    <h1>乐器介绍</h1>
+    <link rel="stylesheet" href="style.css">
+  </header>
+
+  <section>
+    <div class="photo">
+      <img src="music/1. yangqin.png" alt="扬琴">
+    </div>
+    <div class="info">
+      <h2>扬琴</h2>
+      <p>
+        扬琴是潮州音乐中极具代表性的弹拨乐器，常用于潮州弦诗、潮州大锣鼓等传统曲目。
+        它的音色清亮、富有穿透力，能够在合奏中起到引领旋律和增强节奏的作用。
+        扬琴的演奏技巧灵活多变，既能表现细腻的抒情旋律，也能烘托热烈的场面，因此在潮州音乐中被视为不可或缺的核心乐器之一。
+        它不仅承载着地方文化的独特韵味，也展现了潮州音乐的多层次与丰富性。
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/1. Yangqin.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/1. Yangqin.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/2. Yehu.png" alt="椰胡">
+    </div>
+    <div class="info">
+      <h2>椰胡</h2>
+      <p>
+        椰胡是潮州音乐中独具特色的弓弦乐器，因其琴筒多以椰壳制成而得名。
+        它的音色柔和而富有韧性，常在合奏中担任旋律的承载者与情感的表达者。
+        椰胡能够细腻地表现潮州音乐的抒情性格，同时也能在热烈的场面中与其他乐器形成呼应。
+        作为潮州弦乐的重要成员，椰胡不仅丰富了整体音响层次，也体现了潮州音乐的地域风格与文化底蕴。
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/2. Yehu.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/2. Yehu.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/3. erhu.png" alt="二胡">
+    </div>
+    <div class="info">
+      <h2>二胡</h2>
+      <p>
+        二胡是中国传统弓弦乐器之一，在潮州音乐中也占有重要地位。
+        它的音色深沉而富有表现力，能够细腻地传达情感与旋律的起伏。
+        二胡常常在合奏中担任主旋律或与其他乐器形成对话，既能展现抒情的柔美，又能烘托激昂的氛围。
+        作为潮州弦乐的重要成员，二胡不仅丰富了整体音响层次，也为潮州音乐增添了更广阔的表现空间。
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/3. Erhu.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/3. Erhu.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/4. zhonghu.png" alt="中胡">
+    </div>
+    <div class="info">
+      <h2>中胡</h2>
+      <p>
+        中胡是潮州音乐中常见的弓弦乐器，音域介于二胡与大胡之间，因此在合奏中常常起到承上启下的作用。
+        它的音色浑厚而温润，既能支撑整体的和声结构，又能与主旋律形成呼应。
+        中胡在潮州弦乐队伍中扮演着中坚角色，既平衡了音响层次，也为音乐增添了深度与厚度，使潮州音乐更具层次感与表现力。
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/4. Zhonghu.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/4. Zhonghu.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/5.cello.png" alt="大提琴">
+    </div>
+    <div class="info">
+      <h2>大提琴</h2>
+      <p>
+        大提琴在潮州音乐的合奏中属于外来引入的弓弦乐器，但它凭借宽广的音域和深沉的音色，为整体音响增添了厚度与庄重感。
+        大提琴常常承担低音声部，稳固节奏与和声基础，使潮州弦乐在表现力上更为丰富。
+        它既能与传统乐器形成互补，又能拓展潮州音乐的表现空间，让古老的地方音乐在现代舞台上更具层次与张力。
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/5. cello.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/5. cello.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/6. suona.png" alt="大小唢呐">
+    </div>
+    <div class="info">
+      <h2>大小唢呐</h2>
+      <p>
+        大唢呐与小唢呐是潮州音乐中独特的乐器。唢呐音色高亢嘹亮，极具穿透力，常用于表现喜庆、热烈的场面。
+        大唢呐音量宏大、气势雄浑，常在潮州大锣鼓或盛大场合中担任主导角色，烘托气氛；
+        小唢呐则音色相对柔和，适合在室内或较为抒情的曲目中使用，能够与弦乐形成呼应。
+        两者在潮州音乐中相辅相成，不仅丰富了整体音响层次，也展现了潮州音乐的多样性与表现力。
+      </p>
+      <p><strong>大唢呐</strong></p>
+      <audio controls height="100" width="100">
+        <source src="music/6. Suona_big.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/6. Suona_big.m4a">
+	    </audio>
+      <p><strong>小唢呐</strong></p>
+      <audio controls height="100" width="100">
+        <source src="music/6. Suona_small.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/6. Suona_small.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <img src="music/7. Drum.png" alt="潮州鼓">
+    </div>
+    <div class="info">
+      <h2>潮州鼓</h2>
+      <p>
+        潮州鼓是潮州音乐中最具力量感的打击乐器之一，常用于潮州大锣鼓、潮州弦诗等传统曲目。
+        它的音色浑厚而富有张力，能够为合奏提供强有力的节奏支撑和气氛烘托。
+        在大型场合中，潮州鼓常常起到统领全局的作用，带动其他乐器的节奏与情绪；
+        在抒情段落中，它也能以细腻的敲击增添层次感。潮州鼓不仅是节奏的核心，更是潮州音乐中展现力量与庄重的重要象征。
+      </p>
+      <audio controls height="100" width="100">
+        <source src="music/7. Drum.m4a" type="audio/mpeg">
+        <embed height="50" width="100" src="music/7. Drum.m4a">
+	    </audio>
+    </div>
+  </section>
+
+  <div class="nav-links">
+    <a href="index.html">首页</a>
+    <a href="performances.html">演出</a>
+    <a href="teachers.html">师资</a>
+    <a href="instruments_en.html">ENGLISH</a>
+  </div>
+
+  <footer class="footer">
+    <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

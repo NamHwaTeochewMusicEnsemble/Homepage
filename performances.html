@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>演出</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff;
+    }
+
+    /* 顶部固定栏 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      z-index: 1000;
+      padding: 15px 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    header img {
+      height: 90px; /* 放大 logo */
+      margin-right: 20px;
+    }
+
+    header h1 {
+      color: darkred;
+      font-size: 32px;
+      margin: 0;
+    }
+
+    /* 内容区 */
+    section {
+      display: flex;
+      margin-top: 120px; /* 避开固定栏 */
+      min-height: 80vh;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1s; /* 顶部淡入后再出现 */
+    }
+
+    .photo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo img {
+      width: 100%;
+      height: auto; /* 保持原图比例 */
+    }
+
+    .info {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .info h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .info p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .info {
+        padding: 20px;
+        text-align: center;
+      }
+      .info h2 {
+        font-size: 28px;
+      }
+      .info p {
+        font-size: 16px;
+      }
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 100px; 
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      background-color: darkred;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #a00000;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部 logo + 演出 -->
+  <header>
+    <img src="image/logo.png" alt="南华潮乐团 Logo">
+    <h1>演出</h1>
+    <link rel="stylesheet" href="style.css">
+  </header>
+
+  <section>
+    <div class="photo">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/CKmM3TwNKAI?si=qzHpweMGpvB77_UK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="info">
+      <h2>《潮韵新章》</h2>
+      <p>
+        2024年南华潮剧社年终音乐会。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/RIBJ6gnFmMU?si=8mLVpWnKRXQd0Cvv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+    </div>
+    <div class="info">
+      <h2>《秋月娘》</h2>
+      <p>
+        盈月入怀，喜乐中秋。<br>
+        中秋节是华族传统节日，在中国潮汕地区，“拜月”是中秋节必不可少的一个环节。
+        潮人谓拜月为拜月娘，月属阴，叫太阴娘，民间管叫月娘。而“拜月娘”实际就是祭拜嫦娥娘娘。以此，祈求一年四季家庭团圆，和睦安康的愿景。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/4jcrg1mBjPU?si=sLizME_wMPXsnfY2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="info">
+      <h2>万紫千红之外韵潮音</h2>
+      <p>
+        
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Hxc4TmG3d28?si=XXLeCeAJXB5k7gtq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+    </div>
+    <div class="info">
+      <h2>《五月龙舟会》</h2>
+      <p>
+        乐曲汇集潮州弦丝乐《五月五》配以赛龙舟竞渡的锣皷，另加入改编闽南歌曲《烧肉粽》，以潮乐轻六调的演奏方式加入双摧的演译，使整首曲更具有端午节的气氛。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="photo">
+      </div>
+    <div class="info">
+      <h2>有空再更新咯</h2>
+      <p>
+
+      </p>
+    </div>
+  </section>
+
+  <div class="nav-links">
+    <a href="index.html">主页</a>
+    <a href="instruments.html">乐器</a>
+    <a href="teachers.html">师资</a>
+    <a href="performances_en.html">ENGLISH</a>
+  </div>
+
+  <footer class="footer">
+    <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

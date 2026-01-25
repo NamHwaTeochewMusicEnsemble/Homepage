@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>南华潮乐团</title>
+  <!-- 关键：适配移动设备 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="./index.js"></script>
+</head>
+<body>
+  <!-- 首页 -->
+  <section class="hero">
+    <img src="image/logo.png" alt="南华潮乐团 Logo" class="logo">
+    <div class="intro">
+      <br>
+      <strong>传承潮乐，融合当代</strong>
+      <br>
+      <br>
+      <div class="buttons">
+        <p class="button_1"><a href="ENG.html">ENGLISH</a></p>
+      </div>
+    </div>
+    <!-- 底部点击区域 -->
+    <div class="bottom-area" onclick="scrollToDetails()">
+      <div class="arrow">V</div>
+    </div>
+  </section>
+
+  <!-- 详情页 -->
+  <section class="details" id="details">
+    <h2>关于南华潮乐团</h2>
+    <p>
+      南华潮乐团2017年10月19号成立于新加坡，专注于潮州音乐之演绎及推广。<br>
+    </p>
+
+    <!-- 四个区块 -->
+    <div class="grid">
+
+      <div class="card" onclick="location.href='instruments.html'">
+        <div class="card-title">乐器</div>
+        <img src="image/instrument.png" alt="乐器">
+      </div>
+
+      <div class="card" onclick="location.href='course.html'">
+        <div class="card-title">课程</div>
+        <img src="image/course.jpg" alt="课程">
+      </div>
+
+      <div class="card" onclick="location.href='teachers.html'">
+        <div class="card-title">师资</div>
+        <img src="image/teacher.jpg" alt="师资">
+      </div>
+
+      <div class="card" onclick="location.href='performances.html'">
+        <div class="card-title">演出</div>
+        <img src="image/performance.jpg" alt="演出">
+      </div>
+
+      <div class="bottom-area-2" onclick="scrollToContact()">
+        <div class="arrow">V</div>
+      </div>
+
+  </section>
+
+<section class="contact" id="contact">
+  <div class="contact-container">
+    <!-- 左边信息 -->
+    <div class="contact-info">
+        <p><strong>联系我们</strong></p>
+        <ul>地点：1 Straits Boulevard #11-03D Singapore Chinese Cultural Centre Singapore 018906</ul>
+        <ul>邮件：admin@namhwaopera.com</ul>
+        <ul>电话：+65 6904 0030</ul>
+        <ul>whatsapp：+65 9677 0209</ul>
+    </div>
+
+    <!-- 右边地图 -->
+    <div class="contact-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8289712730943!2d103.8469882747377!3d1.2759827987118841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1913eee41bff%3A0x67150c4584efd760!2sSingapore%20Chinese%20Cultural%20Centre%20(Office)!5e0!3m2!1szh-CN!2ssg!4v1769146972529!5m2!1szh-CN!2ssg" 
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <!-- 底部箭头返回详情页 -->
+  <div class="bottom-area-3" onclick="scrollToDetails()">
+    <div class="arrow-3">点击返回</div>
+  </div>
+  </section>
+
+  <script>
+    function scrollToDetails() {
+      document.getElementById("details").scrollIntoView({ behavior: "smooth" });
+    }
+    function scrollToContact() {
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+
+  <footer class="footer">
+    <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

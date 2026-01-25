@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Teachers</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fff;
+    }
+
+    /* 顶部固定栏 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      z-index: 1000;
+      padding: 15px 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    header img {
+      height: 90px; /* 放大 logo */
+      margin-right: 20px;
+    }
+
+    header h1 {
+      color: darkred;
+      font-size: 32px;
+      margin: 0;
+    }
+
+    /* 内容区 */
+    section {
+      display: flex;
+      margin-top: 120px; /* 避开固定栏 */
+      min-height: 80vh;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 1s; /* 顶部淡入后再出现 */
+    }
+
+    .photo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo img {
+      width: 50%;
+      height: auto; /* 保持原图比例 */
+    }
+
+    .info {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .info h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .info p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .info {
+        padding: 20px;
+        text-align: center;
+      }
+      .info h2 {
+        font-size: 28px;
+      }
+      .info p {
+        font-size: 16px;
+      }
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 100px; 
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      background-color: darkred;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #a00000;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部 logo + 师资 -->
+  <header>
+    <img src="image/logo.png" alt="南华潮乐团 Logo">
+    <h1>Teachers</h1>
+    <link rel="stylesheet" href="style.css">
+  </header>
+
+  <!-- 黄英贵老师介绍 -->
+  <section>
+    <div class="photo">
+      <img src="image/Ng.jpg" alt="Mr Ng Eng Quee">
+    </div>
+    <div class="info">
+      <h2>Mr Ng Eng Quee</h2>
+      <p>
+        Music Instructor of Nam Hwa Teochew Music Ensemble.<br>
+        From a young age, He was immersed in Teochew culture, learning temple chants such as Chanheban and Xianghuaban, as well as the grand Teochew drum ensemble of Teochew, China.<br>
+        He I studied the pipa under teachers Yang Haoran and Qi Zhaoming, and in 1978 joined the Chinese Arts National Music Ensemble.<br>
+        In 2006, he became a member of the Thau Yong Amateur Musical Association, where He delved into the study of Waijiang music and Teochew performance traditions, while also learning various Teochew instruments.<br>
+        In 2009, he organized a large-scale comprehensive Teochew cultural performance, featuring Teochew grand drums, small drums, flute suites, string-poetry music, temple music, Waijiang music, and excerpts from Teochew opera.<br>
+        In 2010, he also led a troupe to Shantou (Swatow) to record a complete set of Teochew Buddhist chants.
+
+      </p>
+    </div>
+  </section>
+
+  <!-- 李挺锋老师介绍 -->
+  <section>
+    <div class="photo">
+      <img src="image/teacher.jpg" alt="Mr Li Tingfeng">
+    </div>
+    <div class="info">
+      <h2>Mr Li Tingfeng</h2>
+      <p>
+        Mr Li is from Puning (county of Teochew), Guangdong Province, China.<br>
+        He was graduated from Jieyang Artistic school, studying Teochew instruments from Wu Xudong including Erxian, Suona, ect.<br>
+        He was the former musician of China Puning Teochew Opera Troupe, now he is the musical teochew of Nam Hwa Opera in Singapore.
+      </p>
+    </div>
+  </section>
+
+  <div class="nav-links">
+    <a href="ENG.html">Home Page</a>
+    <a href="performances_en.html">Performances</a>
+    <a href="instruments_en.html">Instruments</a>
+    <a href="teachers.html">中文</a>
+  </div>
+
+  <footer class="footer">
+    <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
