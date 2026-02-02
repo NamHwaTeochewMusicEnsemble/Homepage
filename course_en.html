@@ -103,24 +103,6 @@
       table {
         width: 90% !important;
       }
-    }
-
-    @media (max-width: 480px) {
-      header img { height: 56px; }
-      header h1 { font-size: 20px; }
-      .header-inner { gap: 10px; }
-      section { padding: 14px; }
-      .nav-links { gap: 8px; }
-      table {
-        width: 95% !important;
-        font-size: 12px;
-      }
-      th, td {
-        padding: 6px;
-      }
-    }
-
-    @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
@@ -141,6 +123,20 @@
       .mobile-menu a {
         padding: 14px 20px;
         font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header img { height: 56px; }
+      header h1 { font-size: 20px; }
+      .header-inner { gap: 10px; }
+      section { padding: 14px; }
+      table {
+        width: 95% !important;
+        font-size: 12px;
+      }
+      th, td {
+        padding: 6px;
       }
     }
 
@@ -188,6 +184,24 @@
       margin: 0;
     }
 
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      background-color: darkred;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: background-color 0.18s, transform 0.12s;
+      display: inline-block;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background-color: #a00000;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
     /* 移动菜单容器 */
     .mobile-menu {
       position: absolute;
@@ -229,6 +243,25 @@
       background-color: #f5f5f5;
       border-left-color: darkred;
       outline: none;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 60%;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: rgb(157, 22, 30);
+      color: white;
+      font-weight: bold;
     }
   </style>
   <link rel="stylesheet" href="style.css">
