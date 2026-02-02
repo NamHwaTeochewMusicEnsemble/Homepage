@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instruments</title>
   <style>
     body {
       margin: 0;
       background-color: #fff;
+      font-family: 'Roboto', sans-serif;
     }
 
     /* 顶部固定栏 */
@@ -15,35 +17,43 @@
       top: 0;
       left: 0;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background-color: #fff;
       z-index: 1000;
-      padding: 15px 0;
+      padding: 12px 20px;
       opacity: 0;
       animation: fadeIn 1s forwards;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     header img {
-      height: 90px; /* 放大 logo */
-      margin-right: 20px;
+      height: 72px;
     }
 
     header h1 {
       color: darkred;
-      font-size: 32px;
+      font-size: 28px;
       margin: 0;
+      flex: 1;
+      text-align: center;
     }
 
     /* 内容区 */
     section {
       display: flex;
-      margin-top: 120px; /* 避开固定栏 */
-      min-height: 80vh;
+      margin-top: 110px; /* 避开固定栏 */
+      min-height: 60vh;
       opacity: 0;
       animation: fadeIn 1s forwards;
-      animation-delay: 1s; /* 顶部淡入后再出现 */
+      animation-delay: 0.6s;
     }
 
     .photo {
@@ -54,17 +64,35 @@
     }
 
     .photo img {
-      width: 50%;
+      width: 70%;
+      max-width: 520px;
       height: auto; /* 保持原图比例 */
     }
 
     .info {
       flex: 1;
       padding: 40px;
+      min-width: 300px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: left;
+    }
+
+    /* Page container */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Audio elements scale with layout */
+    audio {
+      width: 100%;
+      max-width: 520px;
+      margin-top: 12px;
     }
 
     .info h2 {
@@ -102,26 +130,47 @@
       .info p {
         font-size: 16px;
       }
+      .photo img {
+        max-width: 90%;
+        width: 320px;
+      }
+      audio {
+        max-width: 420px;
+      }
     }
-      .nav-links {
+
+    @media (max-width: 480px) {
+      header img { height: 56px; }
+      header h1 { font-size: 20px; }
+      .header-inner { gap: 10px; }
+      .info { padding: 14px; }
+      .photo img { width: 90%; max-width: 360px; }
+      audio { max-width: 360px; }
+      .nav-links { gap: 8px; }
+    }
+
+    .nav-links {
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 100px; 
+      gap: 16px;
+      align-items: center;
+      padding: 0;
     }
 
     .nav-links a {
       text-decoration: none;
       color: #fff;
       background-color: darkred;
-      padding: 10px 18px;
+      padding: 8px 14px;
       border-radius: 6px;
-      font-size: 16px;
-      transition: background-color 0.3s;
+      font-size: 15px;
+      transition: background-color 0.18s, transform 0.12s;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:focus {
       background-color: #a00000;
+      transform: translateY(-1px);
+      outline: none;
     }
   </style>
   <link rel="stylesheet" href="style.css">
@@ -129,15 +178,23 @@
 <body>
   <!-- 顶部 logo + 乐器介绍 -->
   <header>
-    <img src="image/logo.png" alt="南华潮乐团 Logo">
-    <h1>instruments</h1>
-    <link rel="stylesheet" href="style.css">
+    <div class="header-inner">
+      <img src="image/logo.png" alt="Nam Hwa Teochew Music Ensemble Logo" loading="lazy" decoding="async">
+      <h1>Instruments</h1>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="ENG.html">Homepage</a>
+        <a href="performances_en.html">Performances</a>
+        <a href="course_en.html">Course</a>
+        <a href="teachers_en.html">Teachers</a>
+        <a href="instruments.html">中文</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- 扬琴介绍 -->
+  <main>
   <section>
     <div class="photo">
-      <img src="music/1. yangqin.png" alt="扬琴">
+      <img src="music/1. yangqin.png" alt="Yangqin" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Yangqin</h2>
@@ -148,16 +205,16 @@
         With versatile playing techniques, the yangqin can express delicate lyrical passages as well as create a lively, festive atmosphere. 
         As a result, it is regarded as one of the core instruments in Teochew music, embodying the region’s cultural essence and highlighting the richness and depth of its musical tradition.
       </p>
-      <audio controls height="100" width="100">
+      <audio controls preload="none" aria-label="Yangqin audio example">
         <source src="music/1. Yangqin.m4a" type="audio/mpeg">
-        <embed height="50" width="100" src="music/1. Yangqin.m4a">
-	    </audio>
+        Your browser does not support the audio element.
+      </audio>
     </div>
   </section>
 
   <section>
     <div class="photo">
-      <img src="music/2. Yehu.png" alt="椰胡">
+      <img src="music/2. Yehu.png" alt="Yehu" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Yehu</h2>
@@ -169,16 +226,16 @@
         dynamic settings. As an essential member of the Teochew string family, the yehu enriches the ensemble’s 
         texture and embodies the regional character and cultural depth of Teochew music.
       </p>
-      <audio controls height="100" width="100">
+      <audio controls preload="none" aria-label="Yehu audio example">
         <source src="music/2. Yehu.m4a" type="audio/mpeg">
-        <embed height="50" width="100" src="music/2. Yehu.m4a">
-	    </audio>
+        Your browser does not support the audio element.
+      </audio>
     </div>
   </section>
 
   <section>
     <div class="photo">
-      <img src="music/3. erhu.png" alt="Erhu">
+      <img src="music/3. erhu.png" alt="Erhu" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Erhu</h2>
@@ -189,16 +246,16 @@
         capable of expressing both lyrical tenderness and passionate intensity. As a vital member of the Teochew string ensemble, 
         the erhu enhances the overall texture and expands the expressive range of Teochew music.
       </p>
-      <audio controls height="100" width="100">
+      <audio controls preload="none" aria-label="Erhu audio example">
         <source src="music/3. Erhu.m4a" type="audio/mpeg">
-        <embed height="50" width="100" src="music/3. Erhu.m4a">
-	    </audio>
+        Your browser does not support the audio element.
+      </audio>
     </div>
   </section>
 
   <section>
     <div class="photo">
-      <img src="music/4. zhonghu.png" alt="zhonghu">
+      <img src="music/4. zhonghu.png" alt="Zhonghu" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Zhonghu</h2>
@@ -208,16 +265,16 @@
         to the main melody. As a central member of the Teochew string section, the zhonghu balances the ensemble’s texture and 
         adds depth, enhancing the layered quality and expressive richness of Teochew music.
       </p>
-      <audio controls height="100" width="100">
+      <audio controls preload="none" aria-label="Zhonghu audio example">
         <source src="music/4. Zhonghu.m4a" type="audio/mpeg">
-        <embed height="50" width="100" src="music/4. Zhonghu.m4a">
-	    </audio>
+        Your browser does not support the audio element.
+      </audio>
     </div>
   </section>
 
   <section>
     <div class="photo">
-      <img src="music/5.cello.png" alt="Cello">
+      <img src="music/5.cello.png" alt="Cello" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Cello</h2>
@@ -227,16 +284,16 @@
         It complements traditional instruments while expanding the expressive possibilities of Teochew music, adding depth and gravitas. 
         This integration allows the regional tradition to resonate with greater complexity and presence on modern stages.
       </p>
-      <audio controls height="100" width="100">
+      <audio controls preload="none" aria-label="Cello audio example">
         <source src="music/5. cello.m4a" type="audio/mpeg">
-        <embed height="50" width="100" src="music/5. cello.m4a">
-	    </audio>
+        Your browser does not support the audio element.
+      </audio>
     </div>
   </section>
 
   <section>
     <div class="photo">
-      <img src="music/6. suona.png" alt="Big & Small Suona">
+      <img src="music/6. suona.png" alt="Big & Small Suona" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Big & Small Suona</h2>
@@ -248,21 +305,21 @@
         Together, they complement each other, enriching the ensemble’s texture and showcasing the diversity and expressive range of Teochew music.
       </p>
       <p><strong>Big Suona</strong></p>
-      <audio controls height="100" width="100">
+      <audio controls preload="none" aria-label="Big Suona audio example">
         <source src="music/6. Suona_big.m4a" type="audio/mpeg">
-        <embed height="50" width="100" src="music/6. Suona_big.m4a">
-	    </audio>
+        Your browser does not support the audio element.
+      </audio>
       <p><strong>Small Suona</strong></p>
-      <audio controls height="100" width="100">
+      <audio controls preload="none" aria-label="Small Suona audio example">
         <source src="music/6. Suona_small.m4a" type="audio/mpeg">
-        <embed height="50" width="100" src="music/6. Suona_small.m4a">
-	    </audio>
+        Your browser does not support the audio element.
+      </audio>
     </div>
   </section>
 
   <section>
     <div class="photo">
-      <img src="music/7. Drum.png" alt="Teochew Drum">
+      <img src="music/7. Drum.png" alt="Teochew Drum" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Teochew Drum</h2>
@@ -274,19 +331,14 @@
         in more lyrical passages, its subtle beats add texture and nuance. 
         The Teochew drum is not only the rhythmic core but also a symbol of strength and solemnity in Teochew music.
       </p>
-      <audio controls height="100" width="100">
+      <audio controls preload="none" aria-label="Teochew Drum audio example">
         <source src="music/7. Drum.m4a" type="audio/mpeg">
-        <embed height="50" width="100" src="music/7. Drum.m4a">
-	    </audio>
+        Your browser does not support the audio element.
+      </audio>
     </div>
   </section>
 
-  <div class="nav-links">
-    <a href="ENG.html">Homepage</a>
-    <a href="performances_en.html">Performances</a>
-    <a href="teachers_en.html">Teachers</a>
-    <a href="instruments.html">中文</a>
-  </div>
+  </main>
 
   <footer class="footer">
     <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>

@@ -129,7 +129,7 @@ body, html {
   align-items: center;
 }
 
-  .contact-info .icon {
+.contact-info .icon {
   margin-right: 10px;
   font-size: 20px;
 }
@@ -181,6 +181,8 @@ body, html {
   height: 370px;
   object-fit: cover;
   transition: transform 0.3s ease;
+  display: block;
+  margin: 0;
 }
 
 .card:hover img {
@@ -233,21 +235,40 @@ body, html {
   color: #aaa;
 }
 
+.button_1,
 .button_1 a{
-    background-color: rgb(157, 22, 30);
-    color:white;
-    text-decoration:none;
-    border: 1px solid white;
-    padding: 10px 20px;
-    border-radius: 3px;
-    transition: background-color 0.15s,
-                color 0.15s,
-                box-shadow 0.15s;
+  display: inline-block;
+  background-color: rgb(157, 22, 30);
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 3px;
+  transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
 }
 
-.button_1 a:hover{
-    background-color: white;
-    color: rgb(157, 22, 30);
-    border: 1px solid rgb(157, 22, 30);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+.button_1:hover,
+.button_1:focus,
+.button_1 a:hover,
+.button_1 a:focus{
+  background-color: white;
+  color: rgb(157, 22, 30);
+  border: 1px solid rgb(157, 22, 30);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Make interactive bottom-area elements visually neutral but keyboard-focusable */
+.bottom-area,
+.bottom-area-2,
+.bottom-area-3{
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Focus styles for accessibility */
+.card:focus{
+  outline: 3px solid rgba(157, 22, 30, 0.2);
+  transform: scale(1.02);
 }

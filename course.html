@@ -2,6 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>课程</title>
   <style>
     body {
@@ -15,68 +16,70 @@
       top: 0;
       left: 0;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background-color: #fff;
       z-index: 1000;
-      padding: 15px 0;
+      padding: 12px 20px;
       opacity: 0;
       animation: fadeIn 1s forwards;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     header img {
-      height: 90px; /* 放大 logo */
-      margin-right: 20px;
+      height: 72px;
     }
 
     header h1 {
       color: darkred;
-      font-size: 32px;
+      font-size: 28px;
       margin: 0;
+      flex: 1;
+      text-align: center;
     }
 
     /* 内容区 */
     section {
       display: flex;
-      margin-top: 120px; /* 避开固定栏 */
-      min-height: 80vh;
+      flex-direction: column;
+      margin-top: 110px; /* 避开固定栏 */
+      min-height: 60vh;
       opacity: 0;
       animation: fadeIn 1s forwards;
-      animation-delay: 1s; /* 顶部淡入后再出现 */
-    }
-
-    .photo {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .photo img {
-      width: 100%;
-      height: auto; /* 保持原图比例 */
-    }
-
-    .info {
-      flex: 1;
+      animation-delay: 0.6s;
       padding: 40px;
-      display: flex;
-      flex-direction: column;
+      text-align: center;
+      align-items: center;
       justify-content: center;
-      text-align: left;
     }
 
-    .info h2 {
+    /* Page container */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    section h2 {
       font-size: 32px;
       margin-bottom: 20px;
       color: #333;
     }
 
-    .info p {
+    section p {
       font-size: 18px;
       line-height: 1.6;
       color: #555;
+      max-width: 900px;
     }
 
     /* 动画效果 */
@@ -88,72 +91,224 @@
     /* 移动端适配 */
     @media (max-width: 768px) {
       section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .info {
         padding: 20px;
-        text-align: center;
       }
-      .info h2 {
+      section h2 {
         font-size: 28px;
       }
-      .info p {
+      section p {
         font-size: 16px;
       }
+      table {
+        width: 90% !important;
+      }
     }
-      .nav-links {
+
+    @media (max-width: 480px) {
+      header img { height: 56px; }
+      header h1 { font-size: 20px; }
+      .header-inner { gap: 10px; }
+      section { padding: 14px; }
+      .nav-links { gap: 8px; }
+      table {
+        width: 95% !important;
+        font-size: 12px;
+      }
+      th, td {
+        padding: 6px;
+      }
+    }
+
+    .nav-links {
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 100px; 
+      gap: 16px;
+      align-items: center;
+      padding: 0;
     }
 
     .nav-links a {
       text-decoration: none;
       color: #fff;
       background-color: darkred;
-      padding: 10px 18px;
+      padding: 8px 14px;
       border-radius: 6px;
-      font-size: 16px;
-      transition: background-color 0.3s;
+      font-size: 15px;
+      transition: background-color 0.18s, transform 0.12s;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:focus {
       background-color: #a00000;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 60%;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: rgb(157, 22, 30);
+      color: white;
+      font-weight: bold;
     }
   </style>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 顶部 logo + 演出 -->
+  <!-- 顶部 logo + 课程 -->
   <header>
-    <img src="image/logo.png" alt="南华潮乐团 Logo">
-    <h1>课程</h1>
-    <link rel="stylesheet" href="style.css">
+    <div class="header-inner">
+      <img src="image/logo.png" alt="南华潮乐团 Logo" loading="lazy" decoding="async">
+      <h1>课程</h1>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">首页</a>
+        <a href="performances.html">演出</a>
+        <a href="instruments.html">乐器</a>
+        <a href="teachers.html">师资</a>
+        <a href="course_en.html">ENGLISH</a>
+      </nav>
+    </div>
   </header>
 
+  <main>
   <section>
-    <div class="photo">
-    </div>
-    <div class="info">
-      <h2>待更新</h2>
-      <p>
-        现在还没时间做。
-      </p>
-    </div>
+    <h2>武畔（打击乐）</h2>
+    <p>
+      潮州音乐之武畔由<strong>潮州鼓</strong>、<strong>战锣</strong>、<strong>大小钹</strong>、<strong>月锣</strong>、
+      <strong>九仔锣</strong>、<strong>钦仔</strong>、<strong>深波</strong>、<strong>苏锣</strong>、<strong>铜钟</strong>、
+      <strong>吊钹</strong>等乐器组成。<br><br>
+      武畔之课程采用分组教学、小组合作与个人指导相结合，注重体验与实践。<br>
+      每阶段配合现场示范与互动讨论，提升学员的音乐感知与团队协作能力。<br><br>
+      课程周期：6个月，每周1次，每次60分钟。
+    </p>
+    <table>
+      <tr>
+        <th>周次</th>
+        <th>教学主题</th>
+        <th>主要内容与目标</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>火炮锣鼓入门</td>
+        <td>打击乐器基础认知与基本演奏方法</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>火炮锣鼓进阶</td>
+        <td>节奏型深化、手法巩固</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>传统打击乐技法（三板）入门</td>
+        <td>传统曲目结构与基本演奏</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>传统打击乐技法（三板）进阶</td>
+        <td>复杂节奏型与合奏配合</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>传统打击乐技法（二板）入门</td>
+        <td>新节奏型学习与实践</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>传统打击乐技法（二板）进阶</td>
+        <td>节奏变化与即兴加花</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>锣鼓结尾技法</td>
+        <td>作品结尾处理与舞台表现</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>综合复习与乐曲组合</td>
+        <td>综合运用所学技法，完成一段完整乐曲</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>与弦乐合奏基础</td>
+        <td>合奏配合、节奏与旋律互动</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>合奏进阶与舞台实践</td>
+        <td>进阶曲目合奏、舞台演练</td>
+      </tr>
+    </table>
   </section>
 
-  <div class="nav-links">
-    <a href="index.html">首页</a>
-    <a href="performances.html">演出</a>
-    <a href="instruments.html">乐器</a>
-    <a href="course_en.html">ENGLISH</a>
-  </div>
+  <section>
+    <h2>文畔（弦诗乐）</h2>
+    <p>
+      文畔课程以<strong>二弦</strong>、<strong>椰胡</strong>、<strong>扬琴</strong>、<strong>提胡</strong>、<strong>秦琴</strong>、<strong>琵琶</strong>、<strong>古筝</strong>等为主，结合潮州音乐独特的"二四谱"与调式系统。<br><br>
+      注重基础功训练、经典曲目分段学习、合奏与个人技艺提升。课程强调"主修一乐器，兼修多乐器"，根据学员兴趣与团体需求灵活调整。
+      每阶段配合个别辅导、集体合奏与成果展示，强化学员的综合音乐素养与舞台表现力。<br><br>
+      课程周期：6个月，每周1次，每次60分钟。
+    </p>
+    <table>
+      <tr>
+        <th>周次</th>
+        <th>教学主题</th>
+        <th>主要内容与目标</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>乐器基础与入门技法</td>
+        <td>各乐器结构、持法、发音原理与基础指法</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>音阶与基础练习</td>
+        <td>常用音阶、指法训练、音准与节奏感培养</td>
+      </tr>
+      <tr>
+        <td>3-5</td>
+        <td>潮州音乐基本功训练</td>
+        <td>长音、抡音、长拉等技法分阶段训练</td>
+      </tr>
+      <tr>
+        <td>6-10</td>
+        <td>经典曲目《万年欢》分段学习</td>
+        <td>分段讲解与练习，注重旋律、节奏与合奏配合</td>
+      </tr>
+      <tr>
+        <td>11-16</td>
+        <td>牌子曲《闹江州》分段学习</td>
+        <td>复杂曲目结构与演奏技法提升</td>
+      </tr>
+      <tr>
+        <td>17-22</td>
+        <td>牌子曲《画眉跳架》分段学习</td>
+        <td>变奏、加花与即兴表达训练</td>
+      </tr>
+      <tr>
+        <td>23-24</td>
+        <td>合奏与舞台实践</td>
+        <td>与打击乐合奏、舞台演练、成果展示</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h1>点击填写报名表以报名课程</h1>
+  </section>
+
+  </main>
 
   <footer class="footer">
     <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
   </footer>
-</body>
 </html>

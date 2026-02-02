@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teachers</title>
   <style>
     body {
       margin: 0;
       background-color: #fff;
+      font-family: 'Roboto', sans-serif;
     }
 
     /* 顶部固定栏 */
@@ -15,35 +17,43 @@
       top: 0;
       left: 0;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background-color: #fff;
       z-index: 1000;
-      padding: 15px 0;
+      padding: 12px 20px;
       opacity: 0;
       animation: fadeIn 1s forwards;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     header img {
-      height: 90px; /* 放大 logo */
-      margin-right: 20px;
+      height: 72px;
     }
 
     header h1 {
       color: darkred;
-      font-size: 32px;
+      font-size: 28px;
       margin: 0;
+      flex: 1;
+      text-align: center;
     }
 
     /* 内容区 */
     section {
       display: flex;
-      margin-top: 120px; /* 避开固定栏 */
-      min-height: 80vh;
+      margin-top: 110px; /* 避开固定栏 */
+      min-height: 60vh;
       opacity: 0;
       animation: fadeIn 1s forwards;
-      animation-delay: 1s; /* 顶部淡入后再出现 */
+      animation-delay: 0.6s;
     }
 
     .photo {
@@ -54,17 +64,28 @@
     }
 
     .photo img {
-      width: 50%;
+      width: 70%;
+      max-width: 520px;
       height: auto; /* 保持原图比例 */
     }
 
     .info {
       flex: 1;
       padding: 40px;
+      min-width: 300px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: left;
+    }
+
+    /* Page container */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     .info h2 {
@@ -102,78 +123,98 @@
       .info p {
         font-size: 16px;
       }
+      .photo img {
+        max-width: 90%;
+        width: 320px;
+      }
     }
+
+    @media (max-width: 480px) {
+      header img { height: 56px; }
+      header h1 { font-size: 20px; }
+      .header-inner { gap: 10px; }
+      .info { padding: 14px; }
+      .photo img { width: 90%; max-width: 360px; }
+      .nav-links { gap: 8px; }
+    }
+
     .nav-links {
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 100px; 
+      gap: 16px;
+      align-items: center;
+      padding: 0;
     }
 
     .nav-links a {
       text-decoration: none;
       color: #fff;
       background-color: darkred;
-      padding: 10px 18px;
+      padding: 8px 14px;
       border-radius: 6px;
-      font-size: 16px;
-      transition: background-color 0.3s;
+      font-size: 15px;
+      transition: background-color 0.18s, transform 0.12s;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:focus {
       background-color: #a00000;
+      transform: translateY(-1px);
+      outline: none;
     }
   </style>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 顶部 logo + 师资 -->
+  <!-- 顶部 logo + Teachers -->
   <header>
-    <img src="image/logo.png" alt="南华潮乐团 Logo">
-    <h1>Teachers</h1>
-    <link rel="stylesheet" href="style.css">
+    <div class="header-inner">
+      <img src="image/logo.png" alt="Nam Hwa Teochew Music Ensemble Logo" loading="lazy" decoding="async">
+      <h1>Teachers</h1>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="ENG.html">Homepage</a>
+        <a href="performances_en.html">Performances</a>
+        <a href="course_en.html">Course</a>
+        <a href="instruments_en.html">Instruments</a>
+        <a href="teachers.html">中文</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- 黄英贵老师介绍 -->
+  <main>
+  <!-- Mr Ng Eng Quee Introduction -->
   <section>
     <div class="photo">
-      <img src="image/Ng.jpg" alt="Mr Ng Eng Quee">
+      <img src="image/Ng.jpg" alt="Mr Ng Eng Quee" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Mr Ng Eng Quee</h2>
       <p>
         Music Instructor of Nam Hwa Teochew Music Ensemble.<br>
-        From a young age, He was immersed in Teochew culture, learning temple chants such as Chanheban and Xianghuaban, as well as the grand Teochew drum ensemble of Teochew, China.<br>
-        He I studied the pipa under teachers Yang Haoran and Qi Zhaoming, and in 1978 joined the Chinese Arts National Music Ensemble.<br>
-        In 2006, he became a member of the Thau Yong Amateur Musical Association, where He delved into the study of Waijiang music and Teochew performance traditions, while also learning various Teochew instruments.<br>
+        From a young age, he was immersed in Teochew culture, learning temple chants such as Chanheban and Xianghuaban, as well as the grand Teochew drum ensemble of Teochew, China.<br>
+        He studied the pipa under teachers Yang Haoran and Qi Zhaoming, and in 1978 joined the Chinese Arts National Music Ensemble.<br>
+        In 2006, he became a member of the Thau Yong Amateur Musical Association, where he delved into the study of Waijiang music and Teochew performance traditions, while also learning various Teochew instruments.<br>
         In 2009, he organized a large-scale comprehensive Teochew cultural performance, featuring Teochew grand drums, small drums, flute suites, string-poetry music, temple music, Waijiang music, and excerpts from Teochew opera.<br>
         In 2010, he also led a troupe to Shantou (Swatow) to record a complete set of Teochew Buddhist chants.
-
       </p>
     </div>
   </section>
 
-  <!-- 李挺锋老师介绍 -->
+  <!-- Mr Li Tingfeng Introduction -->
   <section>
     <div class="photo">
-      <img src="image/teacher.jpg" alt="Mr Li Tingfeng">
+      <img src="image/teacher.jpg" alt="Mr Li Tingfeng" loading="lazy" decoding="async">
     </div>
     <div class="info">
       <h2>Mr Li Tingfeng</h2>
       <p>
         Mr Li is from Puning (county of Teochew), Guangdong Province, China.<br>
-        He was graduated from Jieyang Artistic school, studying Teochew instruments from Wu Xudong including Erxian, Suona, ect.<br>
-        He was the former musician of China Puning Teochew Opera Troupe, now he is the musical teochew of Nam Hwa Opera in Singapore.
+        He was graduated from Jieyang Artistic school, studying Teochew instruments from Wu Xudong including Erxian, Suona, and other traditional instruments.<br>
+        He was the former musician of China Puning Teochew Opera Troupe, and is now the music teacher of Nam Hwa Teochew Music Ensemble in Singapore.
       </p>
     </div>
   </section>
 
-  <div class="nav-links">
-    <a href="ENG.html">Home Page</a>
-    <a href="performances_en.html">Performances</a>
-    <a href="instruments_en.html">Instruments</a>
-    <a href="teachers.html">中文</a>
-  </div>
+  </main>
 
   <footer class="footer">
     <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>

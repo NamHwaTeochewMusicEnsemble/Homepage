@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses</title>
   <style>
     body {
       margin: 0;
       background-color: #fff;
+    font-family: 'Roboto', sans-serif;
     }
 
     /* 顶部固定栏 */
@@ -15,68 +17,70 @@
       top: 0;
       left: 0;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background-color: #fff;
       z-index: 1000;
-      padding: 15px 0;
+      padding: 12px 20px;
       opacity: 0;
       animation: fadeIn 1s forwards;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     header img {
-      height: 90px; /* 放大 logo */
-      margin-right: 20px;
+      height: 72px;
     }
 
     header h1 {
       color: darkred;
-      font-size: 32px;
+      font-size: 28px;
       margin: 0;
+      flex: 1;
+      text-align: center;
     }
 
     /* 内容区 */
     section {
       display: flex;
-      margin-top: 120px; /* 避开固定栏 */
-      min-height: 80vh;
+      flex-direction: column;
+      margin-top: 110px; /* 避开固定栏 */
+      min-height: 60vh;
       opacity: 0;
       animation: fadeIn 1s forwards;
-      animation-delay: 1s; /* 顶部淡入后再出现 */
-    }
-
-    .photo {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .photo img {
-      width: 100%;
-      height: auto; /* 保持原图比例 */
-    }
-
-    .info {
-      flex: 1;
+      animation-delay: 0.6s;
       padding: 40px;
-      display: flex;
-      flex-direction: column;
+      text-align: center;
+      align-items: center;
       justify-content: center;
-      text-align: left;
     }
 
-    .info h2 {
+    /* Page container */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    section h2 {
       font-size: 32px;
       margin-bottom: 20px;
       color: #333;
     }
 
-    .info p {
+    section p {
       font-size: 18px;
       line-height: 1.6;
       color: #555;
+      max-width: 900px;
     }
 
     /* 动画效果 */
@@ -88,72 +92,224 @@
     /* 移动端适配 */
     @media (max-width: 768px) {
       section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .info {
         padding: 20px;
-        text-align: center;
       }
-      .info h2 {
+      section h2 {
         font-size: 28px;
       }
-      .info p {
+      section p {
         font-size: 16px;
       }
+      table {
+        width: 90% !important;
+      }
     }
-      .nav-links {
+
+    @media (max-width: 480px) {
+      header img { height: 56px; }
+      header h1 { font-size: 20px; }
+      .header-inner { gap: 10px; }
+      section { padding: 14px; }
+      .nav-links { gap: 8px; }
+      table {
+        width: 95% !important;
+        font-size: 12px;
+      }
+      th, td {
+        padding: 6px;
+      }
+    }
+
+    .nav-links {
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 100px; 
+      gap: 16px;
+      align-items: center;
+      padding: 0;
     }
 
     .nav-links a {
       text-decoration: none;
       color: #fff;
       background-color: darkred;
-      padding: 10px 18px;
+      padding: 8px 14px;
       border-radius: 6px;
-      font-size: 16px;
-      transition: background-color 0.3s;
+      font-size: 15px;
+      transition: background-color 0.18s, transform 0.12s;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:focus {
       background-color: #a00000;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 60%;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: rgb(157, 22, 30);
+      color: white;
+      font-weight: bold;
     }
   </style>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 顶部 logo + 演出 -->
+  <!-- 顶部 logo + 课程 -->
   <header>
-    <img src="image/logo.png" alt="南华潮乐团 Logo">
-    <h1>Courses</h1>
-    <link rel="stylesheet" href="style.css">
+    <div class="header-inner">
+      <img src="image/logo.png" alt="南华潮乐团 Logo" loading="lazy" decoding="async">
+      <h1>Courses</h1>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="ENG.html">HOME</a>
+        <a href="performances_en.html">PERFORMANCES</a>
+        <a href="instruments_en.html">INSTRUMENTS</a>
+        <a href="teachers_en.html">TEACHERS</a>
+        <a href="course.html">中文</a>
+      </nav>
+    </div>
   </header>
 
+  <main>
   <section>
-    <div class="photo">
-    </div>
-    <div class="info">
-      <h2>To be updated....</h2>
-      <p>
-        I don't have time to do now.
-      </p>
-    </div>
+    <h2>Percussion Courses (Wu Ban)</h2>
+    <p>
+      The Wu Ban tradition of Teochew music features <strong>Teochew drum</strong>, <strong>war gong</strong>, <strong>large and small cymbals</strong>, <strong>moon gong</strong>,
+      <strong>nine-piece gong</strong>, <strong>qin gong</strong>, <strong>shenbo</strong>, <strong>su gong</strong>, <strong>bronze bell</strong>, and
+      <strong>hanging cymbals</strong>, among other instruments.<br><br>
+      The Wu Ban curriculum adopts a blended approach of group teaching, collaborative teamwork, and individualized guidance, with a strong emphasis on experiential learning and practical application.<br>
+      Each stage is complemented by live demonstrations and interactive discussions to enhance participants' musical perception and teamwork skills.<br><br>
+      Course duration: 2 months, once per week, 90 minutes per session.
+    </p>
+    <table>
+      <tr>
+        <th>Week</th>
+        <th>Teaching Theme</th>
+        <th>Main Content & Objectives</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Introduction to Huo Pao Gong and Drum</td>
+        <td>Basic understanding of percussion instruments and fundamental playing methods</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Advanced Huo Pao Gong and Drum</td>
+        <td>Deepening rhythm patterns, consolidating techniques</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Introduction to Traditional Percussion Techniques (San Ban)</td>
+        <td>Structure of traditional repertoire and basic performance</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Advanced Traditional Percussion Techniques (San Ban)</td>
+        <td>Complex rhythm patterns and ensemble coordination</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Introduction to Traditional Percussion Techniques (Er Ban)</td>
+        <td>Learning and practicing new rhythm patterns</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Advanced Traditional Percussion Techniques (Er Ban)</td>
+        <td>Rhythm variations and improvisational ornamentation</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Gong and Drum Ending Techniques</td>
+        <td>Handling musical endings and stage presentation</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Comprehensive Review and Piece Integration</td>
+        <td>Applying learned techniques to complete a full piece</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Basics of Ensemble with Strings</td>
+        <td>Ensemble coordination, rhythm and melody interaction</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Advanced Ensemble and Stage Practice</td>
+        <td>Performing advanced repertoire in ensemble, stage rehearsal</td>
+      </tr>
+    </table>
   </section>
 
-  <div class="nav-links">
-    <a href="ENG.html">Homepage</a>
-    <a href="performances_en.html">Performances</a>
-    <a href="instruments_en.html">Instruments</a>
-    <a href="course.html">中文</a>
-  </div>
+  <section>
+    <h2>String-Poetry Courses (Wen Ban)</h2>
+    <p>
+      The Wen Ban curriculum emphasizes <strong>erxian</strong>, <strong>yehu</strong>, <strong>yangqin</strong>, <strong>tihu</strong>, <strong>qinqin</strong>, <strong>pipa</strong>, and <strong>guzheng</strong>, combined with Teochew music's distinctive "Er-Si notation" and modal system.<br><br>
+      The course focuses on foundational training, sectional study of classic pieces, ensemble practice, and individual skill enhancement. It emphasizes "majoring in one instrument while minoring in multiple instruments," with flexible adjustments based on participants' interests and ensemble needs.
+      Each stage is accompanied by individual guidance, group ensemble practice, and performance showcases, strengthening participants' overall musical literacy and stage presence.<br><br>
+      Course duration: 6 months, once per week, 60 minutes per session.
+    </p>
+    <table>
+      <tr>
+        <th>Week</th>
+        <th>Teaching Theme</th>
+        <th>Main Content & Objectives</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Instrument Basics and Introductory Techniques</td>
+        <td>Structure of each instrument, posture, sound production principles, and basic fingering</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Scales and Basic Exercises</td>
+        <td>Common scales, fingering practice, development of intonation and sense of rhythm</td>
+      </tr>
+      <tr>
+        <td>3-5</td>
+        <td>Fundamental Training in Teochew Music</td>
+        <td>Progressive training in techniques such as sustained tones, rolling tones, and long pulls</td>
+      </tr>
+      <tr>
+        <td>6-10</td>
+        <td>Classic Piece <em>Buang Nee Huann</em> – Sectional Study</td>
+        <td>Sectional explanation and practice, focusing on melody, rhythm, and ensemble coordination</td>
+      </tr>
+      <tr>
+        <td>11-16</td>
+        <td>Paizi Piece <em>Nao Gang Chew</em> – Sectional Study</td>
+        <td>Complex structure analysis and improvement of performance techniques</td>
+      </tr>
+      <tr>
+        <td>17-22</td>
+        <td>Paizi Piece <em>Ue Bhai Tiau Khe</em> – Sectional Study</td>
+        <td>Training in variations, ornamentation, and improvisational expression</td>
+      </tr>
+      <tr>
+        <td>23-24</td>
+        <td>Ensemble and Stage Practice</td>
+        <td>Ensemble with percussion, stage rehearsal, and performance showcase</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h1>Click to Fill Out Registration Form to Enroll in Courses</h1>
+  </section>
+
+  </main>
 
   <footer class="footer">
     <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
   </footer>
-</body>
 </html>
