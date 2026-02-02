@@ -5,48 +5,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Courses</title>
   <style>
+    /* ---------- Reset & 基础 ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      background-color: #fff;
-    font-family: 'Roboto', sans-serif;
+      line-height: 1.6; 
+      background-color: #fff; 
+      font-family: 'Roboto', sans-serif;
+      color: #333; 
     }
+    a { text-decoration: none; }
 
-    /* 顶部固定栏 */
+    /* ---------- Header ---------- */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       background-color: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       z-index: 1000;
       padding: 12px 20px;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
-
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
       gap: 20px;
     }
-
-    header img {
-      height: 72px;
-    }
-
+    .logo-link img { height: 72px; }
     header h1 {
-      color: darkred;
-      font-size: 28px;
-      margin: 0;
       flex: 1;
       text-align: center;
+      font-size: 28px;
+      color: darkred;
+      z-index: 1000;
     }
 
-    /* 内容区 */
+    /* 桌面导航 */
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+    .nav-links a {
+      padding: 8px 14px;
+      border-radius: 6px;
+      background-color: darkred;
+      color: #fff;
+      font-size: 15px;
+      transition: background-color 0.18s, transform 0.12s;
+    }
+    .nav-links a:hover { background-color: #a00000; transform: translateY(-1px); }
+
+    /* 汉堡菜单 */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1002;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 3px;
+      background-color: darkred;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px,8px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px,-7px); }
+
+    /* 移动菜单 */
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 200px;
+      background-color: #fff;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      margin-top: 0;
+      z-index: 999;
+    }
+    .mobile-menu.show { max-height: 500px; opacity: 1; margin-top: 12px; }
+    .mobile-menu a {
+      display: block;
+      padding: 12px 20px;
+      color: darkred;
+      border-left: 3px solid transparent;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .mobile-menu a:hover { background-color: #f5f5f5; border-left-color: darkred; }
+
+    /* ---------- Main ---------- */
+    main { max-width: 1200px; margin: 120px auto 40px; padding: 0 20px; }
+
     section {
       display: flex;
       flex-direction: column;
@@ -83,169 +149,40 @@
       max-width: 900px;
     }
 
-    /* 动画效果 */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .photo { flex: 1; display: flex; justify-content: center; align-items: center; }
+    .photo img { width: 65%; max-width: 520px; height: auto; }
+
+    .info { flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: center; }
+    .info h2 { font-size: 32px; color: #333; margin-bottom: 16px; }
+    .info p { font-size: 18px; color: #555; margin-bottom: 12px; }
+    .info audio { width: 100%; max-width: 520px; }
+
+    @keyframes fadeIn { from {opacity:0;} to{opacity:1;} }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 12px;
+      background: #111;
+      color: #aaa;
     }
 
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-      section {
-        padding: 20px;
-      }
-      section h2 {
-        font-size: 28px;
-      }
-      section p {
-        font-size: 16px;
-      }
-      table {
-        width: 90% !important;
-      }
-      .nav-links {
-        display: none;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-      .mobile-menu {
-        position: fixed;
-        top: 92px;
-        left: 0;
-        right: 0;
-        border-radius: 0;
-        min-width: 100%;
-      }
-      .mobile-menu.show {
-        max-height: 400px;
-      }
-      .mobile-menu a {
-        padding: 14px 20px;
-        font-size: 16px;
-      }
+    /* ---------- 响应式 ---------- */
+    @media screen and (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      section { flex-direction: column; text-align: center; }
+      .info { text-align: center; padding: 10px 0; }
+      .photo img { width: 80%; }
     }
-
-    @media (max-width: 480px) {
-      header img { height: 56px; }
+    @media screen and (max-width: 480px) {
       header h1 { font-size: 20px; }
-      .header-inner { gap: 10px; }
-      section { padding: 14px; }
-      table {
-        width: 95% !important;
-        font-size: 12px;
-      }
-      th, td {
-        padding: 6px;
-      }
+      .logo-link img { height: 56px; }
+      .info h2 { font-size: 24px; }
+      .info p { font-size: 16px; }
     }
-
-    /* 汉堡菜单按钮 */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      z-index: 1001;
-    }
-
-    .menu-toggle span {
-      display: block;
-      width: 24px;
-      height: 3px;
-      background-color: darkred;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(10px, 10px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      padding: 0;
-      list-style: none;
-      margin: 0;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #fff;
-      background-color: darkred;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 15px;
-      transition: background-color 0.18s, transform 0.12s;
-      display: inline-block;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus {
-      background-color: #a00000;
-      transform: translateY(-1px);
-      outline: none;
-    }
-
-    /* 移动菜单容器 */
-    .mobile-menu {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background-color: #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      border-radius: 0 0 8px 8px;
-      padding: 12px 0;
-      min-width: 200px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-      z-index: 999;
-      margin-top: 0;
-    }
-
-    .mobile-menu.show {
-      max-height: 500px;
-      opacity: 1;
-      margin-top: 12px;
-    }
-
-    .mobile-menu a {
-      display: block;
-      padding: 12px 20px;
-      color: darkred;
-      text-decoration: none;
-      font-size: 15px;
-      background-color: white;
-      transition: background-color 0.2s ease;
-      border-left: 3px solid transparent;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .mobile-menu a:hover,
-    .mobile-menu a:focus {
-      background-color: #f5f5f5;
-      border-left-color: darkred;
-      outline: none;
-    }
-
-    table {
+  table {
       margin: 20px auto;
       border-collapse: collapse;
       width: 60%;
@@ -264,24 +201,39 @@
       font-weight: bold;
     }
   </style>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 顶部 logo + 课程 -->
+
+  <!-- ---------- Header ---------- -->
   <header>
     <div class="header-inner">
-      <img src="image/logo.png" alt="南华潮乐团 Logo" loading="lazy" decoding="async">
+      <a href="index.html" class="logo-link">
+        <img src="image/logo.png" alt="南华潮乐团 Logo">
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <h1>Courses</h1>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="ENG.html">HOME</a>
-        <a href="performances_en.html">PERFORMANCES</a>
-        <a href="instruments_en.html">INSTRUMENTS</a>
-        <a href="teachers_en.html">TEACHERS</a>
-        <a href="course.html">中文</a>
+      <nav class="nav-links">
+        <a href="ENG.html">Homepage</a>
+        <a href="instruments_en.html">Instruments</a>
+        <a href="teachers_en.html">Teachers</a>
+        <a href="performances_en.html">Performances</a>
+        <a href="teachers.html">中文</a>
+      </nav>
+      <nav class="mobile-menu">
+        <a href="ENG.html">Homepage</a>
+        <a href="instruments_en.html">Instruments</a>
+        <a href="teachers_en.html">Teachers</a>
+        <a href="performances_en.html">Performances</a>
+        <a href="teachers.html">中文</a>
       </nav>
     </div>
   </header>
 
+  <!-- ---------- Main ---------- -->
   <main>
   <section>
     <h2>Percussion Courses (Wu Ban)</h2>
@@ -410,7 +362,40 @@
 
   </main>
 
+  <!-- ---------- Footer ---------- -->
   <footer class="footer">
+    <br>
     <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
+    <br>
   </footer>
+
+  <!-- ---------- JS ---------- -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('show');
+      menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        mobileMenu.classList.remove('show');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
+        menuToggle.classList.remove('active');
+        mobileMenu.classList.remove('show');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+</body>
 </html>

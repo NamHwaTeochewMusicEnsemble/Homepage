@@ -5,152 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teachers</title>
   <style>
+    /* ---------- Reset & 基础 ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      background-color: #fff;
+      line-height: 1.6; 
+      background-color: #fff; 
       font-family: 'Roboto', sans-serif;
+      color: #333; 
     }
+    a { text-decoration: none; }
 
-    /* 顶部固定栏 */
+    /* ---------- Header ---------- */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       background-color: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       z-index: 1000;
       padding: 12px 20px;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
-
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
       gap: 20px;
     }
-
-    header img {
-      height: 72px;
-    }
-
+    .logo-link img { height: 72px; }
     header h1 {
-      color: darkred;
-      font-size: 28px;
-      margin: 0;
       flex: 1;
       text-align: center;
+      font-size: 28px;
+      color: darkred;
+      z-index: 1000;
     }
 
-    /* 内容区 */
-    section {
+    /* 桌面导航 */
+    .nav-links {
       display: flex;
-      margin-top: 110px; /* 避开固定栏 */
-      min-height: 60vh;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 0.6s;
+      gap: 16px;
     }
-
-    .photo {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .nav-links a {
+      padding: 8px 14px;
+      border-radius: 6px;
+      background-color: darkred;
+      color: #fff;
+      font-size: 15px;
+      transition: background-color 0.18s, transform 0.12s;
     }
+    .nav-links a:hover { background-color: #a00000; transform: translateY(-1px); }
 
-    .photo img {
-      width: 70%;
-      max-width: 520px;
-      height: auto; /* 保持原图比例 */
-    }
-
-    .info {
-      flex: 1;
-      padding: 40px;
-      min-width: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: left;
-    }
-
-    /* Page container */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .info h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .info p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    /* 动画效果 */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-      section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .info {
-        padding: 20px;
-        text-align: center;
-      }
-      .info h2 {
-        font-size: 28px;
-      }
-      .info p {
-        font-size: 16px;
-      }
-      .photo img {
-        max-width: 90%;
-        width: 320px;
-      }
-      .nav-links {
-        display: none;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-      .mobile-menu {
-        position: fixed;
-        top: 92px;
-        left: 0;
-        right: 0;
-        border-radius: 0;
-        min-width: 100%;
-      }
-      .mobile-menu.show {
-        max-height: 400px;
-      }
-      .mobile-menu a {
-        padding: 14px 20px;
-        font-size: 16px;
-      }
-    }
-
-    /* 汉堡菜单按钮 */
+    /* 汉堡菜单 */
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -161,9 +70,8 @@
       border: none;
       cursor: pointer;
       padding: 8px;
-      z-index: 1001;
+      z-index: 1002;
     }
-
     .menu-toggle span {
       display: block;
       width: 24px;
@@ -172,173 +80,170 @@
       border-radius: 2px;
       transition: all 0.3s ease;
     }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px,8px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px,-7px); }
 
-    .menu-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(10px, 10px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      padding: 0;
-      list-style: none;
-      margin: 0;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #fff;
-      background-color: darkred;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 15px;
-      transition: background-color 0.18s, transform 0.12s;
-      display: inline-block;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus {
-      background-color: #a00000;
-      transform: translateY(-1px);
-      outline: none;
-    }
-
-    /* 移动菜单容器 */
+    /* 移动菜单 */
     .mobile-menu {
       position: absolute;
       top: 100%;
       right: 0;
+      width: 200px;
       background-color: #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       border-radius: 0 0 8px 8px;
-      padding: 12px 0;
-      min-width: 200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.3s ease;
       opacity: 0;
-      z-index: 999;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
       margin-top: 0;
+      z-index: 999;
     }
-
-    .mobile-menu.show {
-      max-height: 500px;
-      opacity: 1;
-      margin-top: 12px;
-    }
-
+    .mobile-menu.show { max-height: 500px; opacity: 1; margin-top: 12px; }
     .mobile-menu a {
       display: block;
       padding: 12px 20px;
       color: darkred;
-      text-decoration: none;
-      font-size: 15px;
-      background-color: white;
-      transition: background-color 0.2s ease;
       border-left: 3px solid transparent;
       transition: background-color 0.2s ease, border-color 0.2s ease;
     }
+    .mobile-menu a:hover { background-color: #f5f5f5; border-left-color: darkred; }
 
-    .mobile-menu a:hover,
-    .mobile-menu a:focus {
-      background-color: #f5f5f5;
-      border-left-color: darkred;
-      outline: none;
+    /* ---------- Main ---------- */
+    main { max-width: 1200px; margin: 120px auto 40px; padding: 0 20px; }
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      align-items: center;
+      gap: 20px;
+      min-height: 80vh;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .photo { flex: 1; display: flex; justify-content: center; align-items: center; }
+    .photo img { width: 65%; max-width: 520px; height: auto; }
+
+    .info { flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: center; }
+    .info h2 { font-size: 32px; color: #333; margin-bottom: 16px; }
+    .info p { font-size: 18px; color: #555; margin-bottom: 12px; }
+    .info audio { width: 100%; max-width: 520px; }
+
+    @keyframes fadeIn { from {opacity:0;} to{opacity:1;} }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 12px;
+      background: #111;
+      color: #aaa;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media screen and (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      section { flex-direction: column; text-align: center; }
+      .info { text-align: center; padding: 10px 0; }
+      .photo img { width: 80%; }
+    }
+    @media screen and (max-width: 480px) {
+      header h1 { font-size: 20px; }
+      .logo-link img { height: 56px; }
+      .info h2 { font-size: 24px; }
+      .info p { font-size: 16px; }
     }
   </style>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 顶部 logo + Teachers -->
+
+  <!-- ---------- Header ---------- -->
   <header>
     <div class="header-inner">
-      <img src="image/logo.png" alt="Nam Hwa Teochew Music Ensemble Logo" loading="lazy" decoding="async">
-      <h1>Teachers</h1>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="ENG.html">Homepage</a>
-        <a href="performances_en.html">Performances</a>
-        <a href="course_en.html">Course</a>
-        <a href="instruments_en.html">Instruments</a>
-        <a href="teachers.html">中文</a>
-      </nav>
+      <a href="index.html" class="logo-link">
+        <img src="image/logo.png" alt="南华潮乐团 Logo">
+      </a>
       <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav class="mobile-menu" aria-label="Mobile navigation">
-        <a href="ENG.html">Homepage</a>
-        <a href="performances_en.html">Performances</a>
-        <a href="course_en.html">Course</a>
+      <h1>Teachers</h1>
+      <nav class="nav-links">
+        <a href="index_en.html">Homepage</a>
         <a href="instruments_en.html">Instruments</a>
+        <a href="course_en.html">Courses</a>
+        <a href="performances_en.html">Performances</a>
+        <a href="teachers.html">中文</a>
+      </nav>
+      <nav class="mobile-menu">
+        <a href="index.html">Homepage</a>
+        <a href="instruments.html">Instruments</a>
+        <a href="course.html">Courses</a>
+        <a href="performances.html">Performances</a>
         <a href="teachers.html">中文</a>
       </nav>
     </div>
   </header>
 
+  <!-- ---------- Main ---------- -->
   <main>
-  <!-- Mr Ng Eng Quee Introduction -->
   <section>
     <div class="photo">
-      <img src="image/Ng.jpg" alt="Mr Ng Eng Quee" loading="lazy" decoding="async">
+      <img src="image/Ng.jpg" alt="Mr Ng Eng Quee">
     </div>
     <div class="info">
       <h2>Mr Ng Eng Quee</h2>
       <p>
-        Music Instructor of Nam Hwa Teochew Music Ensemble.<br>
-        From a young age, he was immersed in Teochew culture, learning temple chants such as Chanheban and Xianghuaban, as well as the grand Teochew drum ensemble of Teochew, China.<br>
-        He studied the pipa under teachers Yang Haoran and Qi Zhaoming, and in 1978 joined the Chinese Arts National Music Ensemble.<br>
-        In 2006, he became a member of the Thau Yong Amateur Musical Association, where he delved into the study of Waijiang music and Teochew performance traditions, while also learning various Teochew instruments.<br>
-        In 2009, he organized a large-scale comprehensive Teochew cultural performance, featuring Teochew grand drums, small drums, flute suites, string-poetry music, temple music, Waijiang music, and excerpts from Teochew opera.<br>
-        In 2010, he also led a troupe to Shantou (Swatow) to record a complete set of Teochew Buddhist chants.
+        Music Director of Nam Hwa Teochew Music Ensemble.<br>
+        From a young age, he was immersed in Teochew culture, learning temple chants such as Chanheban and Xianghuaban, as well as the grand Teochew drum ensemble of Teochew, China.
+He studied the pipa under teachers Yang Haoran and Qi Zhaoming, and in 1978 joined the Chinese Arts National Music Ensemble.
+In 2006, he became a member of the Thau Yong Amateur Musical Association, where he delved into the study of Waijiang music and Teochew performance traditions, while also learning various Teochew instruments.
+In 2009, he organized a large-scale comprehensive Teochew cultural performance, featuring Teochew grand drums, small drums, flute suites, string-poetry music, temple music, Waijiang music, and excerpts from Teochew opera.
+In 2010, he also led a troupe to Shantou (Swatow) to record a complete set of Teochew Buddhist chants.
       </p>
     </div>
   </section>
 
-  <!-- Mr Li Tingfeng Introduction -->
+  <!-- 李挺锋老师介绍 -->
   <section>
     <div class="photo">
-      <img src="image/teacher.jpg" alt="Mr Li Tingfeng" loading="lazy" decoding="async">
+      <img src="image/teacher.jpg" alt="Mr Li Tingfeng">
     </div>
     <div class="info">
       <h2>Mr Li Tingfeng</h2>
       <p>
         Mr Li is from Puning (county of Teochew), Guangdong Province, China.<br>
-        He was graduated from Jieyang Artistic school, studying Teochew instruments from Wu Xudong including Erxian, Suona, and other traditional instruments.<br>
-        He was the former musician of China Puning Teochew Opera Troupe, and is now the music teacher of Nam Hwa Teochew Music Ensemble in Singapore.
+        He was graduated from Jieyang Artistic school, studying Teochew instruments from Wu Xudong including Erxian, Suona, and other traditional instruments.
+He was the former musician of China Puning Teochew Opera Troupe, and is now the music teacher of Nam Hwa Teochew Music Ensemble in Singapore.
       </p>
     </div>
   </section>
-
   </main>
 
+  <!-- ---------- Footer ---------- -->
   <footer class="footer">
+    <br>
     <p>Copyright © 2026 Nam Hwa Teochew Music Ensemble. All Rights Reserved.</p>
+    <br>
   </footer>
 
+  <!-- ---------- JS ---------- -->
   <script>
-    // 汉堡菜单功能
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileLinks = mobileMenu.querySelectorAll('a');
 
-    // 切换菜单显示/隐藏
     menuToggle.addEventListener('click', () => {
       menuToggle.classList.toggle('active');
       mobileMenu.classList.toggle('show');
       menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
     });
 
-    // 点击菜单项后关闭菜单
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         menuToggle.classList.remove('active');
@@ -347,8 +252,7 @@
       });
     });
 
-    // 点击页面其他区域关闭菜单
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', e => {
       if (!e.target.closest('.menu-toggle') && !e.target.closest('.mobile-menu')) {
         menuToggle.classList.remove('active');
         mobileMenu.classList.remove('show');
