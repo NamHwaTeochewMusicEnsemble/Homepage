@@ -223,6 +223,27 @@
         width: 100%;   /* 移动端占满宽度 */
         }
     }
+    .button_1,
+    .button_1 a{
+      display: inline-block;
+      background-color: rgb(157, 22, 30);
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      padding: 10px 20px;
+      border-radius: 3px;
+      transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
+    }
+
+    .button_1:hover,
+    .button_1:focus,
+    .button_1 a:hover,
+    .button_1 a:focus{
+      background-color: white;
+      color: rgb(157, 22, 30);
+      border: 1px solid rgb(157, 22, 30);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    }
   </style>
 </head>
 <body>
@@ -379,10 +400,9 @@
         <td>Ensemble with percussion, stage rehearsal, and performance showcase</td>
       </tr>
     </table>
-  </section>
-
-  <section>
-    <h1>Click to Fill Out Registration Form to Enroll in Courses</h1>
+    <br>
+    <a class="button_1" href="https://docs.google.com/forms/d/e/1FAIpQLSd68ELfgwLJay8zTxpoQGB_8SqIm9XhbPEAqCOMK_waUGaZuw/viewform?usp=publish-editor" style="display: inline-block; margin-top: 20px;">Click to Fill Out Registration Form to Enroll in Courses</a>
+    <br>
   </section>
 
   </main>
