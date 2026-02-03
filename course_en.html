@@ -183,20 +183,7 @@
       color: #aaa;
     }
 
-    /* ---------- 响应式 ---------- */
-    @media screen and (max-width: 768px) {
-      .nav-links { display: none; }
-      .menu-toggle { display: flex; }
-      section { flex-direction: column; text-align: center; }
-      .info { text-align: center; padding: 10px 0; }
-      .photo img { width: 80%; }
-    }
-    @media screen and (max-width: 480px) {
-      header h1 { font-size: 20px; }
-      .logo-link img { height: 56px; }
-      .info h2 { font-size: 24px; }
-      .info p { font-size: 16px; }
-    }
+
   table {
       margin: 20px auto;
       border-collapse: collapse;
@@ -214,6 +201,27 @@
       background-color: rgb(157, 22, 30);
       color: white;
       font-weight: bold;
+    }
+
+      /* ---------- 响应式 ---------- */
+    @media screen and (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      section { flex-direction: column; text-align: center; }
+      .info { text-align: center; padding: 10px 0; }
+      .photo img { width: 80%; }
+      table {
+        width: 100%;   /* 移动端占满宽度 */
+        }
+    }
+    @media screen and (max-width: 480px) {
+      header h1 { font-size: 20px; }
+      .logo-link img { height: 56px; }
+      .info h2 { font-size: 24px; }
+      .info p { font-size: 16px; }
+      table {
+        width: 100%;   /* 移动端占满宽度 */
+        }
     }
   </style>
 </head>
