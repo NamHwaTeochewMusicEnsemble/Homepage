@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>演出</title>
-    <!-- 通用 favicon -->
-  <link rel="icon" href="/image/favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
+  <!-- 通用 favicon -->
+  <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
 
   <!-- Android Chrome 图标 -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/image/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/image/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="image/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="image/android-chrome-512x512.png">
 
   <!-- Apple Touch 图标 -->
-  <link rel="apple-touch-icon" href="/image/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="image/apple-touch-icon.png">
 
   <!-- 可选：网站 logo，用于部分浏览器或社交分享 -->
-  <link rel="icon" href="/image/logo.png" type="image/png">
+  <link rel="icon" href="image/logo.png" type="image/png">
 
   <style>
     /* ---------- Reset & 基础 ---------- */
@@ -159,13 +159,29 @@
       .menu-toggle { display: flex; }
       section { flex-direction: column; text-align: center; }
       .info { text-align: center; padding: 10px 0; }
-      .photo img { width: 80%; }
+      .photo {width: 100%;}
+      .video-wrapper {max-width: 100%;}
     }
     @media screen and (max-width: 480px) {
       header h1 { font-size: 20px; }
       .logo-link img { height: 56px; }
       .info h2 { font-size: 24px; }
       .info p { font-size: 16px; }
+    }
+    /* ---------- 响应式视频 ---------- */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
   </style>
 </head>
@@ -204,7 +220,12 @@
   <main>
   <section>
     <div class="photo">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/CKmM3TwNKAI?si=qzHpweMGpvB77_UK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/CKmM3TwNKAI?si=qzHpweMGpvB77_UK"
+          title="YouTube video player"
+          frameborder="0"
+          allowfullscreen></iframe>
+      </div>
     </div>
     <div class="info">
       <h2>《潮韵新章》</h2>
@@ -216,7 +237,12 @@
 
   <section>
     <div class="photo">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/RIBJ6gnFmMU?si=8mLVpWnKRXQd0Cvv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/RIBJ6gnFmMU?si=8mLVpWnKRXQd0Cvv"
+          title="YouTube video player"
+          frameborder="0"
+          allowfullscreen></iframe>
+      </div>
     </div>
     <div class="info">
       <h2>《秋月娘》</h2>
@@ -230,7 +256,12 @@
 
   <section>
     <div class="photo">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/4jcrg1mBjPU?si=sLizME_wMPXsnfY2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/4jcrg1mBjPU?si=sLizME_wMPXsnfY2"
+          title="YouTube video player"
+          frameborder="0"
+          allowfullscreen></iframe>
+      </div>
     </div>
     <div class="info">
       <h2>万紫千红之外韵潮音</h2>
@@ -242,7 +273,12 @@
 
   <section>
     <div class="photo">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Hxc4TmG3d28?si=XXLeCeAJXB5k7gtq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/Hxc4TmG3d28?si=XXLeCeAJXB5k7gtq"
+          title="YouTube video player"
+          frameborder="0"
+          allowfullscreen></iframe>
+      </div>
     </div>
     <div class="info">
       <h2>《五月龙舟会》</h2>
