@@ -188,6 +188,8 @@
       margin: 20px auto;
       border-collapse: collapse;
       width: 60%;
+      max-width: 100%;
+      table-layout: fixed;
     }
 
     th, td {
@@ -195,12 +197,23 @@
       padding: 12px;
       text-align: center;
       vertical-align: middle;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     th {
       background-color: rgb(157, 22, 30);
       color: white;
       font-weight: bold;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .table-wrap table {
+      max-width: 100%;
     }
 
       /* ---------- 响应式 ---------- */
@@ -282,14 +295,15 @@
   <section>
     <h2>Percussion Courses (Wu Ban)</h2>
     <p>
-      The Wu Ban tradition of Teochew music features <strong>Teochew drum</strong>, <strong>war gong</strong>, <strong>large and small cymbals</strong>, <strong>moon gong</strong>,
-      <strong>nine-piece gong</strong>, <strong>qin gong</strong>, <strong>shenbo</strong>, <strong>su gong</strong>, <strong>bronze bell</strong>, and
+      The Wu Ban tradition of Teochew music features <strong>Teochew drum</strong>, <strong>Zhanluo</strong>, <strong>large and small cymbals</strong>, <strong>Yueluo & Jiuzailuo</strong>,
+      <strong>Kim gia</strong>, <strong>shenbo</strong>, <strong>Suluo</strong>, <strong>bronze bell</strong>, and
       <strong>hanging cymbals</strong>, among other instruments.<br><br>
       The Wu Ban curriculum adopts a blended approach of group teaching, collaborative teamwork, and individualized guidance, with a strong emphasis on experiential learning and practical application.<br>
       Each stage is complemented by live demonstrations and interactive discussions to enhance participants' musical perception and teamwork skills.<br><br>
       <strong>Course duration: 2 months, once per week, 90 minutes per session.</strong>
     </p>
     <br>
+    <div class="table-wrap">
     <table>
       <tr>
         <th>Week</th>
@@ -347,6 +361,7 @@
         <td>Performing advanced repertoire in ensemble, stage rehearsal</td>
       </tr>
     </table>
+    </div>
   </section>
 
   <section>
@@ -358,6 +373,7 @@
       <strong>Course duration: 6 months, once per week, 60 minutes per session.</strong>
     </p>
     <br>
+    <div class="table-wrap">
     <table>
       <tr>
         <th>Week</th>
@@ -400,6 +416,7 @@
         <td>Ensemble with percussion, stage rehearsal, and performance showcase</td>
       </tr>
     </table>
+    </div>
     <br>
     <br>
     <br>

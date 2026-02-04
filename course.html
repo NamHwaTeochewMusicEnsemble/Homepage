@@ -186,6 +186,8 @@
       margin: 10px auto;
       border-collapse: collapse;
       width: 60%;
+      max-width: 100%;
+      table-layout: fixed;
     }
 
     th, td {
@@ -193,6 +195,8 @@
       padding: 12px;
       text-align: center;
       vertical-align: middle;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     th {
@@ -200,6 +204,16 @@
       color: white;
       font-weight: bold;
     }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .table-wrap table {
+      max-width: 100%;
+    }
+
         /* ---------- 响应式 ---------- */
     @media screen and (max-width: 768px) {
       .nav-links { display: none; }
@@ -207,7 +221,7 @@
       section { flex-direction: column; text-align: center; }
       .info { text-align: center; padding: 10px 0; }
       .photo img { width: 80%; }
-        table {
+      table {
           width: 100%;   /* 移动端占满宽度 */
         }
     }
@@ -284,6 +298,7 @@
       <strong>课程周期：6个月，每周1次，每次60分钟。</strong>
     </p>
     <br>
+    <div class="table-wrap">
     <table>
       <tr>
         <th>周次</th>
@@ -341,6 +356,7 @@
         <td>进阶曲目合奏、舞台演练</td>
       </tr>
     </table>
+    </div>
   </section>
 
   <section>
@@ -352,6 +368,7 @@
       <strong>课程周期：6个月，每周1次，每次60分钟。</strong>
     </p>
     <br>
+    <div class="table-wrap">
     <table>
       <tr>
         <th>周次</th>
@@ -394,6 +411,7 @@
         <td>与打击乐合奏、舞台演练、成果展示</td>
       </tr>
     </table>
+    </div>
     <br>
     <br>
     <br>
